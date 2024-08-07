@@ -275,6 +275,9 @@ public class Mqttv5PahoMessageDrivenChannelAdapter
 			}
 			else {
 				this.mqttClient = clientManager.getClient();
+				if (this.mqttClient.isConnected()) {
+					connectComplete(true);
+				}
 			}
 		}
 		finally {
